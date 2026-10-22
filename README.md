@@ -2,15 +2,23 @@
 
 Source for the promo page of [lyrics-display](https://github.com/AKAama/lyrics-display) (a macOS menu bar lyrics app), served at https://lyrics.ismyh.cn/.
 
-This source was rebuilt from the production bundle (`assets/index-CICnlmup.js` / `assets/index-CUwwI-pF.css`) after the original was lost. The rendered page matches the live site pixel for pixel, except for three deliberate text fixes (see "Differences" below).
+This source was rebuilt from the production bundle (`assets/index-CICnlmup.js` / `assets/index-CUwwI-pF.css`) after the original was lost, then updated to reflect **lyrics-display v0.2.1** (Apple Music built-in lyrics, LRCLIB fallback, slot width, native `.app`).
 
 ## Stack
 Vite 7, React 19, TypeScript, `animal-island-ui` (global stylesheet only: Nunito and Noto Sans SC fonts plus design tokens).
 The live bundle contained no `animal-island-ui` React components. The whole page is plain JSX styled by `src/styles/app.css`, which is the app CSS copied verbatim from the bundle.
 
 ## Layout (in order)
-`src/components/`: Nav → Hero → Features (3 alternating rows) → Privacy → Reviews (carousel) → Faq (accordion) → Install (brew CTA) → Footer.
-All copy is in `src/content.ts` (reviews, FAQ, links, brew command) or inline in the components.
+`src/components/`: Nav → Hero → Features (3 alternating rows) → Privacy → Reviews (carousel) → Faq (accordion) → Install (brew + .app CTA) → Footer.
+All copy is in `src/content.ts` (reviews, FAQ, links, brew command, `APP_VERSION`) or inline in the components.
+
+## App version mirrored here
+- Badge / package: **v0.2.1**
+- Homebrew install (unchanged):
+  ```bash
+  brew tap AKAama/lyrics-display && brew install lyrics-display
+  ```
+- macOS `.app` / DMG: [GitHub Releases](https://github.com/AKAama/lyrics-display/releases)
 
 ## Develop
 ```bash
@@ -33,3 +41,4 @@ Before you use `--delete`, back up the current directory on the server.
 - Fixed literal backslashes that rendered on the live page: "We\'ll show the lyrics." became "We'll", and "isn\'t perfect" became "isn't".
 - Restored the missing "©" in the footer: " 2026 AKAama · MIT License" became "© 2026 AKAama · MIT License".
 - `animal-island-ui` is now ^2.3.0. The old build used an earlier release whose CSS also referenced footer-sea, footer-tree, critterpedia and similar images. Copies of those images are in `src/assets/animal-island-legacy/` for reference. The page never displayed them.
+- Content updated for app **v0.2.1**: Music TTML → NetEase → LRCLIB cascade, menu mock (改用在线歌词 / 重新获取歌词), `slot_width` in config sample, Releases `.app` link.

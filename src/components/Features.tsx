@@ -12,7 +12,8 @@ function FeatureRow({ title, body, visual, reverse }: { title: ReactNode; body: 
 const configSample = `{
   "show_emoji": true,
   "emoji": "♪",
-  "offset_ms": 350
+  "offset_ms": 350,
+  "slot_width": 18
 }`
 
 export default function Features() {
@@ -20,7 +21,7 @@ export default function Features() {
     <section id="features" className="novu-section">
       <FeatureRow
         title={<>Just play music.<br />We'll show the lyrics.</>}
-        body="Open Apple Music and start playing. lyrics-display reads the current track via AppleScript, fetches synced lyrics from NetEase Cloud Music, and displays them in your menu bar — updated every 500ms."
+        body="Open Apple Music and start playing. lyrics-display reads the track via AppleScript, prefers Music's built-in TTML lyrics, then falls back to NetEase and LRCLIB — and shows the current line in your menu bar every 500ms."
         visual={
           <div className="menubar-demo">
             <div className="menubar-line">
@@ -35,18 +36,21 @@ export default function Features() {
       />
       <FeatureRow
         reverse
-        title={<>Precise sync.<br />Adjustable offset.</>}
-        body="LRC timestamps are parsed and matched to your playback position. If your headphones add latency, tweak the offset in the config file until it feels right."
+        title={<>Precise sync.<br />Fixed slot width.</>}
+        body="LRC / TTML timestamps match your playback position. Tweak offset_ms for headphone latency, and set slot_width so mixed Chinese/English lines keep a stable menu bar width while scrolling."
         visual={<div className="code-block"><pre>{configSample}</pre></div>}
       />
       <FeatureRow
-        title={<>Cached lyrics.<br />Switch sources.</>}
-        body={`Lyrics are cached per song to reduce API calls. If the match isn't perfect, click "Next source" in the menu to try another candidate from the search results.`}
+        title={<>Built-in first.<br />Switch & reload.</>}
+        body={`Prefer Music's official lyrics when they have a timeline. Switch to online candidates with "改用在线歌词" / "换下一个歌词源", or hit "重新获取歌词" to reload the current track.`}
         visual={
           <div className="menu-demo">
-            <div className="menu-item">♪ 七里香 — 周杰伦</div>
+            <div className="menu-item">状态：播放中</div>
+            <div className="menu-item">歌曲：七里香 — 周杰伦</div>
+            <div className="menu-item">歌词源：Music 内置</div>
             <div className="menu-sep" />
-            <div className="menu-item">换下一个歌词源</div>
+            <div className="menu-item">改用在线歌词</div>
+            <div className="menu-item">重新获取歌词</div>
             <div className="menu-item">打开配置文件</div>
             <div className="menu-sep" />
             <div className="menu-item">退出</div>

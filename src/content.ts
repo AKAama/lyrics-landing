@@ -1,5 +1,8 @@
-// Copy recovered verbatim from the production bundle (assets/index-CICnlmup.js).
+// Marketing copy for the lyrics-display promo page.
+// Keep Chinese+English mix consistent with the existing tone.
 export const REPO_URL = 'https://github.com/AKAama/lyrics-display'
+export const RELEASES_URL = 'https://github.com/AKAama/lyrics-display/releases'
+export const APP_VERSION = 'v0.2.1'
 export const BREW_COMMAND = 'brew tap AKAama/lyrics-display && brew install lyrics-display'
 
 export interface Review { text: string; author: string }
@@ -14,9 +17,10 @@ export const reviews: Review[] = [
 export interface FaqEntry { key: string; q: string; a: string }
 export const faqs: FaqEntry[] = [
   { key: '1', q: '歌词显示不出来怎么办？', a: '请检查以下几点：1. 确认已授予自动化权限（系统设置 -> 隐私与安全性 -> 自动化）；2. 确认 Apple Music 正在播放歌曲；3. 尝试重启程序和 Apple Music；4. 检查菜单栏是否有足够的空间显示歌词。' },
-  { key: '2', q: '支持哪些音乐 App？', a: '目前主要支持 Apple Music。通过 AppleScript 读取当前播放信息，从网易云音乐获取歌词。' },
+  { key: '2', q: '支持哪些音乐 App？歌词从哪来？', a: '目前主要支持 Apple Music。优先读取「音乐」App 内置 TTML 歌词，没有时间轴时再匹配网易云，网易云不可用时回退到 LRCLIB。' },
   { key: '3', q: '会消耗很多电量吗？', a: '不会。本应用经过深度优化，500ms 刷新频率下几乎无额外电量消耗。不播放音乐时自动休眠。' },
-  { key: '4', q: '歌词匹配不准怎么办？', a: '可以在菜单栏菜单中点击「换下一个歌词源」，程序会按候选顺序切换到下一条网易云搜索结果。也可以在配置文件中调整 offset_ms 参数。' },
-  { key: '5', q: '如何调整歌词偏移？', a: '编辑配置文件 ~/Library/Application Support/lyrics-display/config.json，调整 offset_ms 值（正数延后，负数提前），保存后重启程序即可。' },
+  { key: '4', q: '歌词匹配不准怎么办？', a: '如果当前用的是 Music 内置歌词，可在菜单里点「改用在线歌词」。在线源不准时点「换下一个歌词源」切换候选，或点「重新获取歌词」重新拉取。也可以在配置文件中调整 offset_ms。' },
+  { key: '5', q: '如何调整歌词偏移和菜单栏宽度？', a: '编辑配置文件 ~/Library/Application Support/lyrics-display/config.json：offset_ms 控制偏移（正数延后，负数提前），slot_width 控制菜单栏歌词槽宽（按汉字宽度，范围 8–40）。保存后重启程序即可。也可在菜单中点「打开配置文件」。' },
   { key: '6', q: '支持 iOS 吗？', a: '不支持。本项目是 macOS 菜单栏工具，依赖 macOS 的 systray API 和 AppleScript。' },
+  { key: '7', q: '可以用 .app 安装吗？', a: '可以。从 GitHub Releases 下载 DMG，把 lyrics-display.app 拖进「应用程序」即可。通过 brew services 启动时，菜单会显示「停止后台服务」，点它会卸载 LaunchAgent。' },
 ]

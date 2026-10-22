@@ -28,7 +28,7 @@ export default function Features() {
               <span className="mb-item">File</span>
               <span className="mb-item">Edit</span>
               <span className="mb-item">View</span>
-              <span className="mb-lyrics">♪ 在电线杆上多嘴</span>
+              <span className="mb-lyrics">♪ 只是为什么眼泪会流我也不懂</span>
               <span className="mb-right">Mon 9:41</span>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function Features() {
         visual={
           <div className="menu-demo">
             <div className="menu-item">状态：播放中</div>
-            <div className="menu-item">歌曲：七里香 — 周杰伦</div>
+            <div className="menu-item">歌曲：我不难过 — 孙燕姿</div>
             <div className="menu-item">歌词源：Music 内置</div>
             <div className="menu-sep" />
             <div className="menu-item">改用在线歌词</div>

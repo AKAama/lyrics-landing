@@ -2,7 +2,10 @@
 // Keep Chinese+English mix consistent with the existing tone.
 export const REPO_URL = 'https://github.com/AKAama/lyrics-display'
 export const RELEASES_URL = 'https://github.com/AKAama/lyrics-display/releases'
-export const APP_VERSION = 'v0.2.1'
+export const APP_VERSION = 'v0.2.2'
+/** Direct DMG download (latest release). Update filename when the asset name changes. */
+export const DMG_URL =
+  'https://github.com/AKAama/lyrics-display/releases/latest/download/lyrics-display-0.2.2.dmg'
 export const BREW_COMMAND = 'brew tap AKAama/lyrics-display && brew install lyrics-display'
 
 export interface Review { text: string; author: string }
@@ -22,5 +25,5 @@ export const faqs: FaqEntry[] = [
   { key: '4', q: '歌词匹配不准怎么办？', a: '如果当前用的是 Music 内置歌词，可在菜单里点「改用在线歌词」。在线源不准时点「换下一个歌词源」切换候选，或点「重新获取歌词」重新拉取。也可以在配置文件中调整 offset_ms。' },
   { key: '5', q: '如何调整歌词偏移和菜单栏宽度？', a: '编辑配置文件 ~/Library/Application Support/lyrics-display/config.json：offset_ms 控制偏移（正数延后，负数提前），slot_width 控制菜单栏歌词槽宽（按汉字宽度，范围 8–40）。保存后重启程序即可。也可在菜单中点「打开配置文件」。' },
   { key: '6', q: '支持 iOS 吗？', a: '不支持。本项目是 macOS 菜单栏工具，依赖 macOS 的 systray API 和 AppleScript。' },
-  { key: '7', q: '可以用 .app 安装吗？', a: '可以。从 GitHub Releases 下载 DMG，把 lyrics-display.app 拖进「应用程序」即可。通过 brew services 启动时，菜单会显示「停止后台服务」，点它会卸载 LaunchAgent。' },
+  { key: '7', q: '可以用 .app 安装吗？', a: '可以。点页面上的「Download .app」会直接下载 DMG，把 lyrics-display.app 拖进「应用程序」即可。通过 brew services 启动时，菜单会显示「停止后台服务」，点它会卸载 LaunchAgent。' },
 ]

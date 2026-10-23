@@ -1,5 +1,5 @@
-import { APP_VERSION, REPO_URL } from '../content'
-import { DownloadIcon, GitHubIcon } from './Icons'
+import { APP_VERSION, DMG_URL } from '../content'
+import { DownloadIcon } from './Icons'
 
 export default function Hero() {
   return (
@@ -11,8 +11,8 @@ export default function Hero() {
           A lightweight Go tool that shows Apple Music lyrics in your macOS menu bar — preferring built-in timed lyrics, then NetEase / LRCLIB. No window switching. No distractions. Just the words, right where you need them.
         </p>
         <div className="hero-actions">
-          <a href="#install" className="btn-primary"><DownloadIcon />Install with Homebrew</a>
-          <a href={REPO_URL} className="btn-secondary"><GitHubIcon />GitHub</a>
+          <a href={DMG_URL} className="btn-primary" download><DownloadIcon />Download .app</a>
+          <a href="#install" className="btn-secondary">Install with Homebrew</a>
         </div>
         <p className="hero-meta">{APP_VERSION} · Go · macOS · MIT</p>
       </div>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { DMG_URL } from '../content'
 import { MusicIcon } from './Icons'
 
 export default function Nav() {
@@ -18,7 +17,7 @@ export default function Nav() {
           <a href="#reviews">Reviews</a>
           <a href="#faq">FAQ</a>
         </div>
-        <a href={DMG_URL} className="nav-cta" download>Download</a>
+        <a href="#install" className="nav-cta">Install</a>
       </div>
     </nav>
   )
